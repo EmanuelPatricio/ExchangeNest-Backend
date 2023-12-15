@@ -1,0 +1,27 @@
+f63539df518564d442512b80871777de
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.prisma = void 0;
+const client_1 = require("@prisma/client");
+exports.prisma = new client_1.PrismaClient({
+    errorFormat: 'pretty',
+    log: [
+        {
+            emit: 'stdout',
+            level: 'query',
+        },
+        {
+            emit: 'stdout',
+            level: 'error',
+        },
+        {
+            emit: 'stdout',
+            level: 'info',
+        },
+        {
+            emit: 'stdout',
+            level: 'warn',
+        },
+    ]
+});
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiQzpcXFVzZXJzXFxlcGF0clxccHJvamVjdHNcXEV4Y2hhbmdlTmVzdC1CYWNrZW5kXFxzcmNcXENvbnRleHRzXFxTaGFyZWRcXGluZnJhc3RydWN0dXJlXFxwZXJzaXN0ZW5jZVxccHJpc21hXFxQcmlzbWFDbGllbnRGYWN0b3J5LnRzIiwibWFwcGluZ3MiOiI7OztBQUFBLDJDQUE2QztBQUVoQyxRQUFBLE1BQU0sR0FBRyxJQUFJLHFCQUFZLENBQUM7SUFDckMsV0FBVyxFQUFFLFFBQVE7SUFDckIsR0FBRyxFQUFFO1FBQ0g7WUFDRSxJQUFJLEVBQUUsUUFBUTtZQUNkLEtBQUssRUFBRSxPQUFPO1NBQ2Y7UUFDRDtZQUNFLElBQUksRUFBRSxRQUFRO1lBQ2QsS0FBSyxFQUFFLE9BQU87U0FDZjtRQUNEO1lBQ0UsSUFBSSxFQUFFLFFBQVE7WUFDZCxLQUFLLEVBQUUsTUFBTTtTQUNkO1FBQ0Q7WUFDRSxJQUFJLEVBQUUsUUFBUTtZQUNkLEtBQUssRUFBRSxNQUFNO1NBQ2Q7S0FDRjtDQUNGLENBQUMsQ0FBQSIsIm5hbWVzIjpbXSwic291cmNlcyI6WyJDOlxcVXNlcnNcXGVwYXRyXFxwcm9qZWN0c1xcRXhjaGFuZ2VOZXN0LUJhY2tlbmRcXHNyY1xcQ29udGV4dHNcXFNoYXJlZFxcaW5mcmFzdHJ1Y3R1cmVcXHBlcnNpc3RlbmNlXFxwcmlzbWFcXFByaXNtYUNsaWVudEZhY3RvcnkudHMiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgUHJpc21hQ2xpZW50IH0gZnJvbSAnQHByaXNtYS9jbGllbnQnXHJcblxyXG5leHBvcnQgY29uc3QgcHJpc21hID0gbmV3IFByaXNtYUNsaWVudCh7XHJcbiAgZXJyb3JGb3JtYXQ6ICdwcmV0dHknLFxyXG4gIGxvZzogW1xyXG4gICAge1xyXG4gICAgICBlbWl0OiAnc3Rkb3V0JyxcclxuICAgICAgbGV2ZWw6ICdxdWVyeScsXHJcbiAgICB9LFxyXG4gICAge1xyXG4gICAgICBlbWl0OiAnc3Rkb3V0JyxcclxuICAgICAgbGV2ZWw6ICdlcnJvcicsXHJcbiAgICB9LFxyXG4gICAge1xyXG4gICAgICBlbWl0OiAnc3Rkb3V0JyxcclxuICAgICAgbGV2ZWw6ICdpbmZvJyxcclxuICAgIH0sXHJcbiAgICB7XHJcbiAgICAgIGVtaXQ6ICdzdGRvdXQnLFxyXG4gICAgICBsZXZlbDogJ3dhcm4nLFxyXG4gICAgfSxcclxuICBdXHJcbn0pIl0sInZlcnNpb24iOjN9

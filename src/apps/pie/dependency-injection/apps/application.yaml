@@ -1,0 +1,13 @@
+services:
+
+  Apps.pie.controllers.StatusGetController:
+    class: ../../controllers/StatusGetController
+    arguments: []
+
+  Apps.pie.controllers.users.UserPostController:
+    class: ../../controllers/Users/UserPostController
+    arguments: ['@Pie.Users.application.UserCreator']
+
+  Apps.pie.controllers.users.UserLoginController:
+    class: ../../controllers/Users/UserLoginController
+    arguments: ['@Pie.Users.application.UserLogin']

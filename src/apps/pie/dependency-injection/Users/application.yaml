@@ -1,0 +1,25 @@
+services:
+  Pie.DbConfig:
+    factory:
+      class: ../../../../Contexts/PIE/Shared/infrastructure/persistence/mongo/MongoConfigFactory
+      method: 'createConfig'
+  
+  Pie.ConnectionManager:
+    factory:
+      class: ../../../../Contexts/Shared/infrastructure/persistence/mongo/MongoClientFactory
+    arguments: ['pie', '@Pie.DbConfig']
+
+  Pie.Users.domain.UserRepository:
+    # class: ../../../../Contexts/PIE/Users/infrastructure/persistence/FileUserRepository
+    # class: ../../../../Contexts/PIE/Users/infrastructure/persistence/MongoUserRepository
+    class: ../../../../Contexts/PIE/Users/infrastructure/persistence/PrismaUserRepository
+    # arguments: ['@Pie.ConnectionManager']
+    arguments: []
+
+  Pie.Users.application.UserCreator:
+    class: ../../../../Contexts/PIE/Users/application/UserCreator
+    arguments: ['@Pie.Users.domain.UserRepository']
+
+  Pie.Users.application.UserLogin:
+    class: ../../../../Contexts/PIE/Users/application/UserLogin
+    arguments: ['@Pie.Users.domain.UserRepository']

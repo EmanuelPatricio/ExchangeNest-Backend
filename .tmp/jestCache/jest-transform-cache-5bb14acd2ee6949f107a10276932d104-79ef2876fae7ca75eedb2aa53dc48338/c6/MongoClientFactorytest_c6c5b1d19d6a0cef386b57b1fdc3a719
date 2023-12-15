@@ -1,0 +1,38 @@
+fc380d942c744889f1df996dba0a8e80
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const MongoClientFactory_1 = require("../../../../src/Contexts/Shared/infrastructure/persistence/mongo/MongoClientFactory");
+const mongodb_1 = require("mongodb");
+describe('MongoClientFactory', () => {
+    const factory = MongoClientFactory_1.MongoClientFactory;
+    let client;
+    beforeEach(() => __awaiter(void 0, void 0, void 0, function* () {
+        client = yield factory.createClient('test', { url: 'mongodb+srv://test:test@cluster0.5n3ek.mongodb.net/?retryWrites=true&w=majority' });
+    }));
+    afterEach(() => __awaiter(void 0, void 0, void 0, function* () {
+        yield client.close();
+    }));
+    it('creates a new client with the connection already established', () => {
+        expect(client).toBeInstanceOf(mongodb_1.MongoClient);
+    });
+    it('creates a new client if it does not exist a client with the given name', () => __awaiter(void 0, void 0, void 0, function* () {
+        const newClient = yield factory.createClient('test2', { url: 'mongodb+srv://test:test@cluster0.5n3ek.mongodb.net/?retryWrites=true&w=majority' });
+        expect(newClient).not.toBe(client);
+        yield newClient.close();
+    }));
+    it('returns a client if it already exists', () => __awaiter(void 0, void 0, void 0, function* () {
+        const newClient = yield factory.createClient('test', { url: 'mongodb+srv://test:test@cluster0.5n3ek.mongodb.net/?retryWrites=true&w=majority' });
+        expect(newClient).toBe(client);
+        yield newClient.close();
+    }));
+});
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiQzpcXFVzZXJzXFxlcGF0clxccHJvamVjdHNcXEV4Y2hhbmdlTmVzdC1CYWNrZW5kXFx0ZXN0c1xcQ29udGV4dHNcXFNoYXJlZFxcaW5mcmFzdHJ1Y3R1cmVcXE1vbmdvQ2xpZW50RmFjdG9yeS50ZXN0LnRzIiwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7O0FBQUEsNEhBQXlIO0FBQ3pILHFDQUFzQztBQUV0QyxRQUFRLENBQUMsb0JBQW9CLEVBQUUsR0FBRyxFQUFFO0lBQ2xDLE1BQU0sT0FBTyxHQUFHLHVDQUFrQixDQUFDO0lBQ25DLElBQUksTUFBbUIsQ0FBQztJQUV4QixVQUFVLENBQUMsR0FBUyxFQUFFO1FBQ3BCLE1BQU0sR0FBRyxNQUFNLE9BQU8sQ0FBQyxZQUFZLENBQUMsTUFBTSxFQUFFLEVBQUUsR0FBRyxFQUFFLGlGQUFpRixFQUFFLENBQUMsQ0FBQztJQUMxSSxDQUFDLENBQUEsQ0FBQyxDQUFDO0lBRUgsU0FBUyxDQUFDLEdBQVMsRUFBRTtRQUNuQixNQUFNLE1BQU0sQ0FBQyxLQUFLLEVBQUUsQ0FBQztJQUN2QixDQUFDLENBQUEsQ0FBQyxDQUFDO0lBRUgsRUFBRSxDQUFDLDhEQUE4RCxFQUFFLEdBQUcsRUFBRTtRQUN0RSxNQUFNLENBQUMsTUFBTSxDQUFDLENBQUMsY0FBYyxDQUFDLHFCQUFXLENBQUMsQ0FBQztJQUM3QyxDQUFDLENBQUMsQ0FBQztJQUVILEVBQUUsQ0FBQyx3RUFBd0UsRUFBRSxHQUFTLEVBQUU7UUFDdEYsTUFBTSxTQUFTLEdBQUcsTUFBTSxPQUFPLENBQUMsWUFBWSxDQUFDLE9BQU8sRUFBRSxFQUFFLEdBQUcsRUFBRSxpRkFBaUYsRUFBRSxDQUFDLENBQUM7UUFFbEosTUFBTSxDQUFDLFNBQVMsQ0FBQyxDQUFDLEdBQUcsQ0FBQyxJQUFJLENBQUMsTUFBTSxDQUFDLENBQUM7UUFFbkMsTUFBTSxTQUFTLENBQUMsS0FBSyxFQUFFLENBQUM7SUFDMUIsQ0FBQyxDQUFBLENBQUMsQ0FBQztJQUVILEVBQUUsQ0FBQyx1Q0FBdUMsRUFBRSxHQUFTLEVBQUU7UUFDckQsTUFBTSxTQUFTLEdBQUcsTUFBTSxPQUFPLENBQUMsWUFBWSxDQUFDLE1BQU0sRUFBRSxFQUFFLEdBQUcsRUFBRSxpRkFBaUYsRUFBRSxDQUFDLENBQUM7UUFFakosTUFBTSxDQUFDLFNBQVMsQ0FBQyxDQUFDLElBQUksQ0FBQyxNQUFNLENBQUMsQ0FBQztRQUUvQixNQUFNLFNBQVMsQ0FBQyxLQUFLLEVBQUUsQ0FBQztJQUMxQixDQUFDLENBQUEsQ0FBQyxDQUFDO0FBQ0wsQ0FBQyxDQUFDLENBQUMiLCJuYW1lcyI6W10sInNvdXJjZXMiOlsiQzpcXFVzZXJzXFxlcGF0clxccHJvamVjdHNcXEV4Y2hhbmdlTmVzdC1CYWNrZW5kXFx0ZXN0c1xcQ29udGV4dHNcXFNoYXJlZFxcaW5mcmFzdHJ1Y3R1cmVcXE1vbmdvQ2xpZW50RmFjdG9yeS50ZXN0LnRzIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IE1vbmdvQ2xpZW50RmFjdG9yeSB9IGZyb20gJy4uLy4uLy4uLy4uL3NyYy9Db250ZXh0cy9TaGFyZWQvaW5mcmFzdHJ1Y3R1cmUvcGVyc2lzdGVuY2UvbW9uZ28vTW9uZ29DbGllbnRGYWN0b3J5JztcclxuaW1wb3J0IHsgTW9uZ29DbGllbnQgfSBmcm9tICdtb25nb2RiJztcclxuXHJcbmRlc2NyaWJlKCdNb25nb0NsaWVudEZhY3RvcnknLCAoKSA9PiB7XHJcbiAgY29uc3QgZmFjdG9yeSA9IE1vbmdvQ2xpZW50RmFjdG9yeTtcclxuICBsZXQgY2xpZW50OiBNb25nb0NsaWVudDtcclxuXHJcbiAgYmVmb3JlRWFjaChhc3luYyAoKSA9PiB7XHJcbiAgICBjbGllbnQgPSBhd2FpdCBmYWN0b3J5LmNyZWF0ZUNsaWVudCgndGVzdCcsIHsgdXJsOiAnbW9uZ29kYitzcnY6Ly90ZXN0OnRlc3RAY2x1c3RlcjAuNW4zZWsubW9uZ29kYi5uZXQvP3JldHJ5V3JpdGVzPXRydWUmdz1tYWpvcml0eScgfSk7XHJcbiAgfSk7XHJcblxyXG4gIGFmdGVyRWFjaChhc3luYyAoKSA9PiB7XHJcbiAgICBhd2FpdCBjbGllbnQuY2xvc2UoKTtcclxuICB9KTtcclxuXHJcbiAgaXQoJ2NyZWF0ZXMgYSBuZXcgY2xpZW50IHdpdGggdGhlIGNvbm5lY3Rpb24gYWxyZWFkeSBlc3RhYmxpc2hlZCcsICgpID0+IHtcclxuICAgIGV4cGVjdChjbGllbnQpLnRvQmVJbnN0YW5jZU9mKE1vbmdvQ2xpZW50KTtcclxuICB9KTtcclxuXHJcbiAgaXQoJ2NyZWF0ZXMgYSBuZXcgY2xpZW50IGlmIGl0IGRvZXMgbm90IGV4aXN0IGEgY2xpZW50IHdpdGggdGhlIGdpdmVuIG5hbWUnLCBhc3luYyAoKSA9PiB7XHJcbiAgICBjb25zdCBuZXdDbGllbnQgPSBhd2FpdCBmYWN0b3J5LmNyZWF0ZUNsaWVudCgndGVzdDInLCB7IHVybDogJ21vbmdvZGIrc3J2Oi8vdGVzdDp0ZXN0QGNsdXN0ZXIwLjVuM2VrLm1vbmdvZGIubmV0Lz9yZXRyeVdyaXRlcz10cnVlJnc9bWFqb3JpdHknIH0pO1xyXG5cclxuICAgIGV4cGVjdChuZXdDbGllbnQpLm5vdC50b0JlKGNsaWVudCk7XHJcblxyXG4gICAgYXdhaXQgbmV3Q2xpZW50LmNsb3NlKCk7XHJcbiAgfSk7XHJcblxyXG4gIGl0KCdyZXR1cm5zIGEgY2xpZW50IGlmIGl0IGFscmVhZHkgZXhpc3RzJywgYXN5bmMgKCkgPT4ge1xyXG4gICAgY29uc3QgbmV3Q2xpZW50ID0gYXdhaXQgZmFjdG9yeS5jcmVhdGVDbGllbnQoJ3Rlc3QnLCB7IHVybDogJ21vbmdvZGIrc3J2Oi8vdGVzdDp0ZXN0QGNsdXN0ZXIwLjVuM2VrLm1vbmdvZGIubmV0Lz9yZXRyeVdyaXRlcz10cnVlJnc9bWFqb3JpdHknIH0pO1xyXG5cclxuICAgIGV4cGVjdChuZXdDbGllbnQpLnRvQmUoY2xpZW50KTtcclxuXHJcbiAgICBhd2FpdCBuZXdDbGllbnQuY2xvc2UoKTtcclxuICB9KTtcclxufSk7Il0sInZlcnNpb24iOjN9

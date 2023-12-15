@@ -1,0 +1,36 @@
+040d35daa69d72326686dd349dc55470
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.UserLoginController = void 0;
+const http_status_1 = __importDefault(require("http-status"));
+class UserLoginController {
+    constructor(userLogin) {
+        this.userLogin = userLogin;
+    }
+    run(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const { email, password } = req.body;
+                const user = yield this.userLogin.run({ email, password });
+                res.status(http_status_1.default.OK).send(JSON.stringify(user));
+            }
+            catch (error) {
+                res.status(http_status_1.default.INTERNAL_SERVER_ERROR).send();
+            }
+        });
+    }
+}
+exports.UserLoginController = UserLoginController;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiQzpcXFVzZXJzXFxlcGF0clxccHJvamVjdHNcXEV4Y2hhbmdlTmVzdC1CYWNrZW5kXFxzcmNcXGFwcHNcXHBpZVxcY29udHJvbGxlcnNcXFVzZXJzXFxVc2VyTG9naW5Db250cm9sbGVyLnRzIiwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7OztBQUNBLDhEQUFxQztBQVdyQyxNQUFhLG1CQUFtQjtJQUM5QixZQUFvQixTQUFvQjtRQUFwQixjQUFTLEdBQVQsU0FBUyxDQUFXO0lBQUcsQ0FBQztJQUV0QyxHQUFHLENBQUMsR0FBcUIsRUFBRSxHQUFhOztZQUM1QyxJQUFJO2dCQUNGLE1BQU0sRUFBRSxLQUFLLEVBQUUsUUFBUSxFQUFFLEdBQUcsR0FBRyxDQUFDLElBQUksQ0FBQztnQkFFckMsTUFBTSxJQUFJLEdBQUcsTUFBTSxJQUFJLENBQUMsU0FBUyxDQUFDLEdBQUcsQ0FBQyxFQUFFLEtBQUssRUFBRSxRQUFRLEVBQUUsQ0FBQyxDQUFDO2dCQUUzRCxHQUFHLENBQUMsTUFBTSxDQUFDLHFCQUFVLENBQUMsRUFBRSxDQUFDLENBQUMsSUFBSSxDQUFDLElBQUksQ0FBQyxTQUFTLENBQUMsSUFBSSxDQUFDLENBQUMsQ0FBQzthQUN0RDtZQUFDLE9BQU8sS0FBSyxFQUFFO2dCQUNkLEdBQUcsQ0FBQyxNQUFNLENBQUMscUJBQVUsQ0FBQyxxQkFBcUIsQ0FBQyxDQUFDLElBQUksRUFBRSxDQUFDO2FBQ3JEO1FBQ0gsQ0FBQztLQUFBO0NBQ0Y7QUFkRCxrREFjQyIsIm5hbWVzIjpbXSwic291cmNlcyI6WyJDOlxcVXNlcnNcXGVwYXRyXFxwcm9qZWN0c1xcRXhjaGFuZ2VOZXN0LUJhY2tlbmRcXHNyY1xcYXBwc1xccGllXFxjb250cm9sbGVyc1xcVXNlcnNcXFVzZXJMb2dpbkNvbnRyb2xsZXIudHMiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgUmVxdWVzdCwgUmVzcG9uc2UgfSBmcm9tICdleHByZXNzJztcclxuaW1wb3J0IGh0dHBTdGF0dXMgZnJvbSAnaHR0cC1zdGF0dXMnO1xyXG5pbXBvcnQgeyBDb250cm9sbGVyIH0gZnJvbSAnLi4vQ29udHJvbGxlcic7XHJcbmltcG9ydCB7IFVzZXJMb2dpbiB9IGZyb20gJ3NyYy9Db250ZXh0cy9QSUUvVXNlcnMvYXBwbGljYXRpb24vVXNlckxvZ2luJztcclxuXHJcbnR5cGUgVXNlckxvZ2luUmVxdWVzdCA9IFJlcXVlc3QgJiB7XHJcbiAgYm9keToge1xyXG4gICAgZW1haWw6IHN0cmluZyxcclxuICAgIHBhc3N3b3JkOiBzdHJpbmdcclxuICB9XHJcbn1cclxuXHJcbmV4cG9ydCBjbGFzcyBVc2VyTG9naW5Db250cm9sbGVyIGltcGxlbWVudHMgQ29udHJvbGxlciB7XHJcbiAgY29uc3RydWN0b3IocHJpdmF0ZSB1c2VyTG9naW46IFVzZXJMb2dpbikge31cclxuXHJcbiAgYXN5bmMgcnVuKHJlcTogVXNlckxvZ2luUmVxdWVzdCwgcmVzOiBSZXNwb25zZSkge1xyXG4gICAgdHJ5IHtcclxuICAgICAgY29uc3QgeyBlbWFpbCwgcGFzc3dvcmQgfSA9IHJlcS5ib2R5O1xyXG5cclxuICAgICAgY29uc3QgdXNlciA9IGF3YWl0IHRoaXMudXNlckxvZ2luLnJ1bih7IGVtYWlsLCBwYXNzd29yZCB9KTtcclxuICAgICAgXHJcbiAgICAgIHJlcy5zdGF0dXMoaHR0cFN0YXR1cy5PSykuc2VuZChKU09OLnN0cmluZ2lmeSh1c2VyKSk7XHJcbiAgICB9IGNhdGNoIChlcnJvcikge1xyXG4gICAgICByZXMuc3RhdHVzKGh0dHBTdGF0dXMuSU5URVJOQUxfU0VSVkVSX0VSUk9SKS5zZW5kKCk7XHJcbiAgICB9XHJcbiAgfVxyXG59Il0sInZlcnNpb24iOjN9

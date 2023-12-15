@@ -1,0 +1,31 @@
+b49c8b52fa44a511b88d7d6e2164207f
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const FileUserRepository_1 = require("../../../../../../src/Contexts/PIE/Users/infrastructure/persistence/FileUserRepository");
+const UserMother_1 = require("../../domain/UserMother");
+describe('Save User', () => {
+    it('should save a user', () => __awaiter(void 0, void 0, void 0, function* () {
+        const repository = new FileUserRepository_1.FileUserRepository();
+        const user = UserMother_1.UserMother.random();
+        yield repository.save(user);
+    }));
+});
+describe('Find User', () => {
+    it('should find an existing user', () => __awaiter(void 0, void 0, void 0, function* () {
+        const repository = new FileUserRepository_1.FileUserRepository();
+        const expectedUser = UserMother_1.UserMother.random();
+        yield repository.save(expectedUser);
+        const user = yield repository.search(expectedUser.id.value);
+        expect(user).toEqual(expectedUser);
+    }));
+});
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiQzpcXFVzZXJzXFxlcGF0clxccHJvamVjdHNcXEV4Y2hhbmdlTmVzdC1CYWNrZW5kXFx0ZXN0c1xcQ29udGV4dHNcXFBJRVxcVXNlcnNcXGluZnJhc3RydWN0dXJlXFxwZXJzaXN0ZW5jZVxcRmlsZVVzZXJSZXBvc2l0b3J5LnRlc3QudHMiLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7QUFBQSwrSEFBMkg7QUFDM0gsd0RBQW9EO0FBRXBELFFBQVEsQ0FBQyxXQUFXLEVBQUUsR0FBRyxFQUFFO0lBQ3pCLEVBQUUsQ0FBQyxvQkFBb0IsRUFBRSxHQUFTLEVBQUU7UUFDbEMsTUFBTSxVQUFVLEdBQUcsSUFBSSx1Q0FBa0IsRUFBRSxDQUFBO1FBRTNDLE1BQU0sSUFBSSxHQUFHLHVCQUFVLENBQUMsTUFBTSxFQUFFLENBQUE7UUFFaEMsTUFBTSxVQUFVLENBQUMsSUFBSSxDQUFDLElBQUksQ0FBQyxDQUFBO0lBQzdCLENBQUMsQ0FBQSxDQUFDLENBQUE7QUFDSixDQUFDLENBQUMsQ0FBQTtBQUVGLFFBQVEsQ0FBQyxXQUFXLEVBQUUsR0FBRyxFQUFFO0lBQ3pCLEVBQUUsQ0FBQyw4QkFBOEIsRUFBRSxHQUFTLEVBQUU7UUFDNUMsTUFBTSxVQUFVLEdBQUcsSUFBSSx1Q0FBa0IsRUFBRSxDQUFBO1FBRTNDLE1BQU0sWUFBWSxHQUFHLHVCQUFVLENBQUMsTUFBTSxFQUFFLENBQUE7UUFFeEMsTUFBTSxVQUFVLENBQUMsSUFBSSxDQUFDLFlBQVksQ0FBQyxDQUFBO1FBRW5DLE1BQU0sSUFBSSxHQUFHLE1BQU0sVUFBVSxDQUFDLE1BQU0sQ0FBQyxZQUFZLENBQUMsRUFBRSxDQUFDLEtBQUssQ0FBQyxDQUFBO1FBQzNELE1BQU0sQ0FBQyxJQUFJLENBQUMsQ0FBQyxPQUFPLENBQUMsWUFBWSxDQUFDLENBQUM7SUFDckMsQ0FBQyxDQUFBLENBQUMsQ0FBQTtBQUNKLENBQUMsQ0FBQyxDQUFBIiwibmFtZXMiOltdLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xcZXBhdHJcXHByb2plY3RzXFxFeGNoYW5nZU5lc3QtQmFja2VuZFxcdGVzdHNcXENvbnRleHRzXFxQSUVcXFVzZXJzXFxpbmZyYXN0cnVjdHVyZVxccGVyc2lzdGVuY2VcXEZpbGVVc2VyUmVwb3NpdG9yeS50ZXN0LnRzIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IEZpbGVVc2VyUmVwb3NpdG9yeSB9IGZyb20gJy4uLy4uLy4uLy4uLy4uLy4uL3NyYy9Db250ZXh0cy9QSUUvVXNlcnMvaW5mcmFzdHJ1Y3R1cmUvcGVyc2lzdGVuY2UvRmlsZVVzZXJSZXBvc2l0b3J5J1xyXG5pbXBvcnQgeyBVc2VyTW90aGVyIH0gZnJvbSAnLi4vLi4vZG9tYWluL1VzZXJNb3RoZXInXHJcblxyXG5kZXNjcmliZSgnU2F2ZSBVc2VyJywgKCkgPT4ge1xyXG4gIGl0KCdzaG91bGQgc2F2ZSBhIHVzZXInLCBhc3luYyAoKSA9PiB7XHJcbiAgICBjb25zdCByZXBvc2l0b3J5ID0gbmV3IEZpbGVVc2VyUmVwb3NpdG9yeSgpXHJcbiAgICBcclxuICAgIGNvbnN0IHVzZXIgPSBVc2VyTW90aGVyLnJhbmRvbSgpXHJcblxyXG4gICAgYXdhaXQgcmVwb3NpdG9yeS5zYXZlKHVzZXIpXHJcbiAgfSlcclxufSlcclxuXHJcbmRlc2NyaWJlKCdGaW5kIFVzZXInLCAoKSA9PiB7XHJcbiAgaXQoJ3Nob3VsZCBmaW5kIGFuIGV4aXN0aW5nIHVzZXInLCBhc3luYyAoKSA9PiB7XHJcbiAgICBjb25zdCByZXBvc2l0b3J5ID0gbmV3IEZpbGVVc2VyUmVwb3NpdG9yeSgpXHJcblxyXG4gICAgY29uc3QgZXhwZWN0ZWRVc2VyID0gVXNlck1vdGhlci5yYW5kb20oKVxyXG5cclxuICAgIGF3YWl0IHJlcG9zaXRvcnkuc2F2ZShleHBlY3RlZFVzZXIpXHJcblxyXG4gICAgY29uc3QgdXNlciA9IGF3YWl0IHJlcG9zaXRvcnkuc2VhcmNoKGV4cGVjdGVkVXNlci5pZC52YWx1ZSlcclxuICAgIGV4cGVjdCh1c2VyKS50b0VxdWFsKGV4cGVjdGVkVXNlcik7XHJcbiAgfSlcclxufSkiXSwidmVyc2lvbiI6M30=

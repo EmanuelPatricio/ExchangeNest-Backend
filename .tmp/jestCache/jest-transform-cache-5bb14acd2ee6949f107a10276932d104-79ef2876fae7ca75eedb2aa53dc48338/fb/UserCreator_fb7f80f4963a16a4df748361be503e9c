@@ -1,0 +1,37 @@
+da393c5c200221d5f81aac72f0e0bbd5
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.UserCreator = void 0;
+const UserId_1 = require("../../Shared/domain/Users/UserId");
+const User_1 = require("../domain/User");
+const UserBirthDate_1 = require("../domain/UserBirthDate");
+const UserEmail_1 = require("../domain/UserEmail");
+const UserFirstName_1 = require("../domain/UserFirstName");
+const UserImage_1 = require("../domain/UserImage");
+const UserLastName_1 = require("../domain/UserLastName");
+const UserNIC_1 = require("../domain/UserNIC");
+const UserPassword_1 = require("../domain/UserPassword");
+const PasswordOperations_1 = require("./PasswordOperations");
+class UserCreator {
+    constructor(repository) {
+        this.repository = repository;
+    }
+    run(request) {
+        return __awaiter(this, void 0, void 0, function* () {
+            request.password = (0, PasswordOperations_1.passwordEncrypted)(request.password);
+            const user = new User_1.User(new UserId_1.UserId(request.id), new UserFirstName_1.UserFirstName(request.firstName), new UserLastName_1.UserLastName(request.lastName), new UserNIC_1.UserNIC(request.nic), new UserEmail_1.UserEmail(request.email), new UserPassword_1.UserPassword(request.password), new UserBirthDate_1.UserBirthDate(request.birthDate), request.image === null ? null : new UserImage_1.UserImage(request.image), request.idRole, request.idUserStatus, request.idCountry, new Date(request.createdOn), new UserId_1.UserId(request.id), null, null);
+            return this.repository.save(user);
+        });
+    }
+}
+exports.UserCreator = UserCreator;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiQzpcXFVzZXJzXFxlcGF0clxccHJvamVjdHNcXEV4Y2hhbmdlTmVzdC1CYWNrZW5kXFxzcmNcXENvbnRleHRzXFxQSUVcXFVzZXJzXFxhcHBsaWNhdGlvblxcVXNlckNyZWF0b3IudHMiLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7O0FBQUEsNkRBQTBEO0FBQzFELHlDQUFzQztBQUN0QywyREFBd0Q7QUFDeEQsbURBQWdEO0FBQ2hELDJEQUF3RDtBQUN4RCxtREFBZ0Q7QUFDaEQseURBQXNEO0FBQ3RELCtDQUE0QztBQUM1Qyx5REFBc0Q7QUFFdEQsNkRBQXlEO0FBR3pELE1BQWEsV0FBVztJQUN0QixZQUFvQixVQUEwQjtRQUExQixlQUFVLEdBQVYsVUFBVSxDQUFnQjtJQUFHLENBQUM7SUFFNUMsR0FBRyxDQUFDLE9BQTBCOztZQUNsQyxPQUFPLENBQUMsUUFBUSxHQUFHLElBQUEsc0NBQWlCLEVBQUMsT0FBTyxDQUFDLFFBQVEsQ0FBQyxDQUFBO1lBRXRELE1BQU0sSUFBSSxHQUFHLElBQUksV0FBSSxDQUNuQixJQUFJLGVBQU0sQ0FBQyxPQUFPLENBQUMsRUFBRSxDQUFDLEVBQ3RCLElBQUksNkJBQWEsQ0FBQyxPQUFPLENBQUMsU0FBUyxDQUFDLEVBQ3BDLElBQUksMkJBQVksQ0FBQyxPQUFPLENBQUMsUUFBUSxDQUFDLEVBQ2xDLElBQUksaUJBQU8sQ0FBQyxPQUFPLENBQUMsR0FBRyxDQUFDLEVBQ3hCLElBQUkscUJBQVMsQ0FBQyxPQUFPLENBQUMsS0FBSyxDQUFDLEVBQzVCLElBQUksMkJBQVksQ0FBQyxPQUFPLENBQUMsUUFBUSxDQUFDLEVBQ2xDLElBQUksNkJBQWEsQ0FBQyxPQUFPLENBQUMsU0FBUyxDQUFDLEVBQ3BDLE9BQU8sQ0FBQyxLQUFLLEtBQUssSUFBSSxDQUFDLENBQUMsQ0FBQyxJQUFJLENBQUMsQ0FBQyxDQUFDLElBQUkscUJBQVMsQ0FBQyxPQUFPLENBQUMsS0FBSyxDQUFDLEVBQzVELE9BQU8sQ0FBQyxNQUFNLEVBQ2QsT0FBTyxDQUFDLFlBQVksRUFDcEIsT0FBTyxDQUFDLFNBQVMsRUFDakIsSUFBSSxJQUFJLENBQUMsT0FBTyxDQUFDLFNBQVMsQ0FBQyxFQUMzQixJQUFJLGVBQU0sQ0FBQyxPQUFPLENBQUMsRUFBRSxDQUFDLEVBQ3RCLElBQUksRUFDSixJQUFJLENBQ0wsQ0FBQTtZQUVELE9BQU8sSUFBSSxDQUFDLFVBQVUsQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDLENBQUM7UUFDcEMsQ0FBQztLQUFBO0NBQ0Y7QUExQkQsa0NBMEJDIiwibmFtZXMiOltdLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xcZXBhdHJcXHByb2plY3RzXFxFeGNoYW5nZU5lc3QtQmFja2VuZFxcc3JjXFxDb250ZXh0c1xcUElFXFxVc2Vyc1xcYXBwbGljYXRpb25cXFVzZXJDcmVhdG9yLnRzIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IFVzZXJJZCB9IGZyb20gJy4uLy4uL1NoYXJlZC9kb21haW4vVXNlcnMvVXNlcklkJztcclxuaW1wb3J0IHsgVXNlciB9IGZyb20gJy4uL2RvbWFpbi9Vc2VyJztcclxuaW1wb3J0IHsgVXNlckJpcnRoRGF0ZSB9IGZyb20gJy4uL2RvbWFpbi9Vc2VyQmlydGhEYXRlJztcclxuaW1wb3J0IHsgVXNlckVtYWlsIH0gZnJvbSAnLi4vZG9tYWluL1VzZXJFbWFpbCc7XHJcbmltcG9ydCB7IFVzZXJGaXJzdE5hbWUgfSBmcm9tICcuLi9kb21haW4vVXNlckZpcnN0TmFtZSc7XHJcbmltcG9ydCB7IFVzZXJJbWFnZSB9IGZyb20gJy4uL2RvbWFpbi9Vc2VySW1hZ2UnO1xyXG5pbXBvcnQgeyBVc2VyTGFzdE5hbWUgfSBmcm9tICcuLi9kb21haW4vVXNlckxhc3ROYW1lJztcclxuaW1wb3J0IHsgVXNlck5JQyB9IGZyb20gJy4uL2RvbWFpbi9Vc2VyTklDJztcclxuaW1wb3J0IHsgVXNlclBhc3N3b3JkIH0gZnJvbSAnLi4vZG9tYWluL1VzZXJQYXNzd29yZCc7XHJcbmltcG9ydCB7IFVzZXJSZXBvc2l0b3J5IH0gZnJvbSAnLi4vZG9tYWluL1VzZXJSZXBvc2l0b3J5JztcclxuaW1wb3J0IHsgcGFzc3dvcmRFbmNyeXB0ZWQgfSBmcm9tICcuL1Bhc3N3b3JkT3BlcmF0aW9ucyc7XHJcbmltcG9ydCB7IENyZWF0ZVVzZXJSZXF1ZXN0IH0gZnJvbSAnLi9SZXF1ZXN0L0NyZWF0ZVVzZXJSZXF1ZXN0JztcclxuXHJcbmV4cG9ydCBjbGFzcyBVc2VyQ3JlYXRvciB7XHJcbiAgY29uc3RydWN0b3IocHJpdmF0ZSByZXBvc2l0b3J5OiBVc2VyUmVwb3NpdG9yeSkge31cclxuXHJcbiAgYXN5bmMgcnVuKHJlcXVlc3Q6IENyZWF0ZVVzZXJSZXF1ZXN0KSB7XHJcbiAgICByZXF1ZXN0LnBhc3N3b3JkID0gcGFzc3dvcmRFbmNyeXB0ZWQocmVxdWVzdC5wYXNzd29yZClcclxuXHJcbiAgICBjb25zdCB1c2VyID0gbmV3IFVzZXIoXHJcbiAgICAgIG5ldyBVc2VySWQocmVxdWVzdC5pZCksXHJcbiAgICAgIG5ldyBVc2VyRmlyc3ROYW1lKHJlcXVlc3QuZmlyc3ROYW1lKSxcclxuICAgICAgbmV3IFVzZXJMYXN0TmFtZShyZXF1ZXN0Lmxhc3ROYW1lKSxcclxuICAgICAgbmV3IFVzZXJOSUMocmVxdWVzdC5uaWMpLFxyXG4gICAgICBuZXcgVXNlckVtYWlsKHJlcXVlc3QuZW1haWwpLFxyXG4gICAgICBuZXcgVXNlclBhc3N3b3JkKHJlcXVlc3QucGFzc3dvcmQpLFxyXG4gICAgICBuZXcgVXNlckJpcnRoRGF0ZShyZXF1ZXN0LmJpcnRoRGF0ZSksXHJcbiAgICAgIHJlcXVlc3QuaW1hZ2UgPT09IG51bGwgPyBudWxsIDogbmV3IFVzZXJJbWFnZShyZXF1ZXN0LmltYWdlKSxcclxuICAgICAgcmVxdWVzdC5pZFJvbGUsXHJcbiAgICAgIHJlcXVlc3QuaWRVc2VyU3RhdHVzLFxyXG4gICAgICByZXF1ZXN0LmlkQ291bnRyeSxcclxuICAgICAgbmV3IERhdGUocmVxdWVzdC5jcmVhdGVkT24pLFxyXG4gICAgICBuZXcgVXNlcklkKHJlcXVlc3QuaWQpLFxyXG4gICAgICBudWxsLFxyXG4gICAgICBudWxsXHJcbiAgICApXHJcbiAgICBcclxuICAgIHJldHVybiB0aGlzLnJlcG9zaXRvcnkuc2F2ZSh1c2VyKTtcclxuICB9XHJcbn0iXSwidmVyc2lvbiI6M30=
