@@ -6,7 +6,7 @@ import Router from 'express-promise-router';
 import * as http from 'http';
 import httpStatus from 'http-status';
 import { registerRoutes } from './routes';
-const helmet = require('helmet')
+const helmet = require('helmet');
 
 export class Server {
   private express: express.Express;
@@ -39,7 +39,7 @@ export class Server {
     return new Promise(resolve => {
       this.httpServer = this.express.listen(this.port, () => {
         console.log(
-          `  Mock Backend App is running at http://localhost:${this.port} in ${this.express.get('env')}mode`
+          `  Mock Backend App is running at http://localhost:${this.port} in ${this.express.get('env')} mode`
         );
         console.log('  Press CTRL-C to stop\n');
         resolve();

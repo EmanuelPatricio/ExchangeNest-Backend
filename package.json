@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "API Rest for the ExchangeNest application",
   "engines": {
-    "node": "~18.19.0",
+    "node": "~18.18.2",
     "npm": "~10.2.5"
   },
   "main": "./build/src/apps/pie/start.js",
@@ -20,7 +20,7 @@
     "build:di": "xcopy .\\src\\apps\\pie\\dependency-injection .\\build\\src\\apps\\pie\\dependency-injection /ise",
     "build:config": "xcopy .\\src\\Contexts\\PIE\\Shared\\infrastructure\\config .\\build\\src\\Contexts\\PIE\\Shared\\infrastructure\\config /ise",
     "build:clean": "rd /s /q build",
-    "start": "ts-node src/index.ts"
+    "start": "NODE_ENV=production & node ./build/src/apps/pie/start.js"
   },
   "repository": {
     "type": "git",
